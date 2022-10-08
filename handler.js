@@ -8,6 +8,7 @@ const handleRoot = (req, res) => {
                 res.status(200).render("index", {
                     name: req.query.name || "Guest",
                     cars: cars,
+                    message: req.flash('message')
                 });
             })
             .catch((err) => {
@@ -50,6 +51,7 @@ const handleCreateCar = (req, res) => {
             size_id: req.body.size,
         })
         .then((result) => {
+            req.flash('message', 'Mobil berhasil dibuat')
             res.send('<script>window.location.href="/";</script>');
         })
         .catch((err) => {
@@ -62,6 +64,7 @@ const handleDeleteCar = (req, res) => {
     car
         .destroy()
         .then(() => {
+            req.flash('message', 'Mobil berhasil dihapus')
             res.send('<script>window.location.href="/";</script>');
         })
         .catch((err) => {
@@ -95,6 +98,7 @@ const handleUpdateCar = (req, res) => {
             size_id: req.body.size,
         })
         .then((result) => {
+            req.flash('message', 'Mobil berhasil diedit')
             res.send('<script>window.location.href="/";</script>');
         })
         .catch((err) => {

@@ -5,6 +5,8 @@ const path = require("path");
 const multer = require("multer");
 const middleware = require("./middleware");
 const bodyParser = require("body-parser");
+const session = require('express-session');
+const flush = require('connect-flash');
 
 const port = 8000;
 
@@ -22,6 +24,14 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + "-" + uniqueSuffix + path.extname(file.originalname));
     },
 });
+
+app.use(session({
+    secret: 'secret',
+    cookie: { maxAge: 60000 },
+    resave: false,
+    saveUninitialized: false,
+}));
+app.use(flush());
 
 app.use(express.urlencoded({ extended: true }));
 

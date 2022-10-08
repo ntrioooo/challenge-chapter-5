@@ -99,6 +99,11 @@
         </div>
       </nav>
       <section class="container mt-3 bg-light list-car ">
+        <% if(message.length > 0) { %>
+          <div class="alert alert-success mt-3 text-center">
+            <%= message %>
+          </div>
+          <% } %>
         <div class="text-list-car">
           <div class="row">
             <p>Cars > List Car</p>
