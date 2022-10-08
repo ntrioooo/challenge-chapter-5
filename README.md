@@ -6,4 +6,5 @@
 6. Buka di URL http://localhost::8000
 
 Ini untuk ERD-nya
+
 ![WhatsApp Image 2022-10-07 at 00 26 35](https://user-images.githubusercontent.com/75536764/194715922-17a06594-1802-4336-8153-005d517a6585.jpeg)
